@@ -1,0 +1,9 @@
+#ei_medicineButton {
+    border-style: solid;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+    width: 300px;
+    left: 50%;
+    margin: auto;
+}
