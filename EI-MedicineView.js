@@ -37,8 +37,8 @@ Module.register("EI-MedicineView", {
 			// deactivate scanning
 			setTimeout(function(ViewSelf) {
 				ViewSelf.medicine.scanning = false;
-				ViewSelf.updateDom();
-			}, 5000, self);
+				ViewSelf.sendUpdate(ViewSelf);
+			}, 7000, self);
 		}
 
 		// Add info text
@@ -74,10 +74,6 @@ Module.register("EI-MedicineView", {
 		wrapper.appendChild(table);
 
 		return wrapper;
-	},
-
-	suspend: function() {
-		this.sendNotification("MED_STOP_SCANNING");
 	},
 
 	sendUpdate: function(self) {
