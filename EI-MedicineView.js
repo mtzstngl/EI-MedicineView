@@ -5,9 +5,7 @@ Module.register("EI-MedicineView", {
 	medicine: {
 		display: false,
 		scanning: false,
-		amount: 0,
-		name: "",
-		day: ""
+		name: ""
 	},
 
 	start: function() {
@@ -46,7 +44,10 @@ Module.register("EI-MedicineView", {
 		// Add info text
 		if (self.medicine.display) {
 			let info = document.createElement("p");
-			info.textContent = self.medicine.amount + " Pillen am " + self.medicine.day + " nehmen.";
+			if (self.medicine.name !== null)
+				info.textContent = "Bitte 1 Pille " + self.medicine.name + " nehmen.";
+			else
+			info.textContent = "Einlesen fehlgeschlagen.";
 			wrapper.appendChild(info);
 		}
 
@@ -63,12 +64,12 @@ Module.register("EI-MedicineView", {
 			<th>Sonntag</th>\
 			</tr>\
 			<tr>\
-			<td>TODO(MSt): Add data</td>\
-			<td></td>\
-			<td></td>\
-			<td></td>\
-			<td></td>\
-			<td></td>\
+			<td>ACC</td>\
+			<td>Paracetamol</td>\
+			<td>Dolormin Extra</td>\
+			<td>ACC</td>\
+			<td>Paracetamol</td>\
+			<td>Dolormin Extra</td>\
 			</tr>";
 		wrapper.appendChild(table);
 
@@ -91,9 +92,7 @@ Module.register("EI-MedicineView", {
 
 		switch (notification) {
 		case "MEDICINE":
-			self.medicine.amount = payload.amount;
-			self.medicine.name = payload.name;
-			self.medicine.day = payload.day;
+			self.medicine.name = payload.medicine;
 			self.medicine.display = true;
 			self.sendUpdate(self);
 			break;
