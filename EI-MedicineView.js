@@ -78,6 +78,14 @@ Module.register("EI-MedicineView", {
         return wrapper;
     },
 
+    suspend: function() {
+        const self = this;
+
+        self.medicine.name = null;
+        self.medicine.display = false;
+        self.sendUpdate(self);
+    },
+
     sendUpdate: function(self) {
         MM.updateDom(self).then(() => {
       //      self.sendNotification("UPDATE_OBS_ELEMENT", "ei_medicineButton");
