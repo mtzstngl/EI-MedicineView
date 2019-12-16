@@ -1,9 +1,21 @@
-#ei_medicineButton {
-    border-style: solid;
-    border-radius: 10px;
+div.ei_medicineView, div.ei_innermedicineView {
     text-align: center;
     padding: 10px;
-    width: 300px;
-    left: 50%;
-    margin: auto;
+}
+
+div.ei_innercontainer {
+    display: flex;
+}
+
+div.ei_innermedicineView {
+    border-style: solid;
+    border-radius: 10px;
+    margin: 10px;
+    width: 100%;
+}
+
+#ei_medicineViewparent {
+    position: fixed;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
