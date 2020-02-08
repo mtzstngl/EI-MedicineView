@@ -8,6 +8,8 @@ Module.register("EI-MedicineView", {
         name: ""
     },
 
+    afterFirstScan: false,
+
     start: function() {
         Log.info("Starting module: " + this.name);
     },
@@ -35,8 +37,11 @@ Module.register("EI-MedicineView", {
             // deactivate scanning
             setTimeout(function(ViewSelf) {
                 ViewSelf.medicine.scanning = false;
+                self.afterFirstScan = true
                 ViewSelf.sendUpdate(ViewSelf);
             }, 7000, self);
+        } else if (self.afterFirstScan) {
+            scanInfo.textContent = "Einlesen fertig. Bitte Button auswählen und Medikament vor die Kamera halten.";
         } else {
             scanInfo.textContent = "Bitte Button auswählen und Medikament vor die Kamera halten.";
         }
