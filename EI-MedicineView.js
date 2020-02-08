@@ -66,10 +66,10 @@ Module.register("EI-MedicineView", {
             <th>Sonntag</th>\
             </tr>\
             <tr>\
-            <td>ACC</td>\
+            <td>ACC akut</td>\
             <td>Paracetamol</td>\
             <td>Dolormin Extra</td>\
-            <td>ACC</td>\
+            <td>ACC akut</td>\
             <td>Paracetamol</td>\
             <td>Dolormin Extra</td>\
             </tr>";
